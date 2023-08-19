@@ -1,10 +1,11 @@
 import { MagnifyingGlass } from 'react-loader-spinner'
 
-import { CardProps } from '../../views/interfaces/GithubUserIntertfaces'
-import UserGithubComponent from './UserInfoCard/UserGithubComponent'
+import UserGithubComponent from './UserInfoCard/GithubUserComponent'
+
+import { CardProps } from '../../interfaces/CardInterfaces'
 
 
-function Card({error, user, loading, typeCard}: CardProps) {
+function Card({inputSearch, error, user, loading, typeCard}: CardProps) {
   
   const cards = {
     githubUser: <UserGithubComponent user={user}/>,
@@ -12,11 +13,18 @@ function Card({error, user, loading, typeCard}: CardProps) {
   }
 
   return (
-    <section className="flex bg-[#1F2A48] justify-center items-center mt-4 p-7 rounded-xl w-full h-[360px]">
+    <section 
+      className="flex bg-white dark:bg-[#1F2A48] justify-center items-center mt-4 p-7 rounded-xl w-full h-[360px] shadow-lg"
+    >
       {error
         ? <div className='flex flex-col items-center'>
           <img src='https://avatars.githubusercontent.com/u/583231?v=4' className='w-64 h-64 rounded-full mb-4'/>
-          <p className='text-white'>Enter a github username to find the user</p>
+          <p className='text-gray-900 dark:text-white'>
+            {inputSearch === ''
+              ? 'Enter a github username to find the user'
+              : 'User not found'
+            }
+          </p>
         </div>
         : loading 
           ? <MagnifyingGlass
@@ -24,7 +32,6 @@ function Card({error, user, loading, typeCard}: CardProps) {
             height="80"
             width="80"
             ariaLabel="MagnifyingGlass-loading"
-            wrapperStyle={{}}
             wrapperClass="MagnifyingGlass-wrapper"
             glassColor = '#c0efff'
             color = '#e15b64'

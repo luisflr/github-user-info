@@ -1,4 +1,4 @@
-export interface IUserData {
+export interface GithubUserData {
   login: string
   id: number
   node_id: string
@@ -33,15 +33,6 @@ export interface IUserData {
   updated_at: string
 }
 
-export type cardTypes = 'githubUser' | 'another'
-
-export interface CardProps {
-  user: IUserData,
-  error: boolean,
-  loading: boolean,
-  typeCard: cardTypes
-}
-
-export interface UserInfoProps {
-  user: IUserData,
+export interface GithubUserProps {
+  user: GithubUserData,
 }

@@ -1,26 +1,35 @@
-import { useState, useEffect } from "react"
-import { getUser } from "../../../services/userService"
-import { IUserData } from "../../interfaces/GithubUserIntertfaces"
+import { useState, useEffect, ChangeEvent } from "react"
 
-export const useGithubUserView = () => {
+import { getUser } from "../../../services/userService"
+import { GithubUserData } from "../../../interfaces/GithubUserIntertfaces"
+import useDarkMode from "./useDarkMode"
+
+export const useGithubUser = () => {
   const [inputSearch, setInputSearch] = useState('')
   const [search, setSearch] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [user, setUser] = useState<IUserData>()
+  const [user, setUser] = useState<GithubUserData>()
   const [error, setError] = useState(true)
+  const { colorTheme, setTheme } = useDarkMode();
+  const [darkMode, setDarkMode] = useState(
+    colorTheme === "light" ? true : false
+  );
 
-  const handleSearch = (e: { target: { value: string; }; }) => {
+  const handleDarkMode = () => {
+      setTheme(colorTheme);
+      setDarkMode(!darkMode);
+  };
+
+  const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setInputSearch(e.target.value)
   }
 
   const onSearchUser = () => setSearch(true)
-
-  
   
   const handleUser = async () => {
     setLoading(true)
     try {
-      const user: IUserData = await getUser(inputSearch)
+      const user: GithubUserData = await getUser(inputSearch)
       setUser(user)
       setLoading(false)
       setSearch(false)
@@ -43,10 +52,12 @@ export const useGithubUserView = () => {
     loading,
     user,
     error,
+    darkMode,
     // State Functions
 
     // Functions
     handleSearch,
-    onSearchUser
+    onSearchUser,
+    handleDarkMode
   }
 }

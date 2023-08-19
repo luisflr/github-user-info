@@ -1,32 +1,33 @@
-import { BsSunFill } from 'react-icons/bs'
+import { BsSunFill, BsMoonFill } from 'react-icons/bs'
 
 import InputSearch from '../../components/inputSearch/inputSearch'
 import Card from '../../components/Cards/Card'
 
-import { useGithubUserView } from './hooks/useGithubUserView'
+import { useGithubUser } from './hooks/useGithubUser'
 
-import { IUserData } from '../interfaces/GithubUserIntertfaces'
+import { GithubUserData } from '../../interfaces/GithubUserIntertfaces'
 
 function GithubUserView() {
-
   const { 
-    inputSearch, user, error, loading,
-    handleSearch, onSearchUser
-  } = useGithubUserView()
+    inputSearch, user, error, loading, darkMode,
+    handleSearch, onSearchUser, handleDarkMode
+  } = useGithubUser()
+
   return (
-    <main className="bg-[#141c2f] w-screen h-screen grid place-content-center font-mono">
+    <main className="bg-[#F5F8FF] dark:bg-[#141c2f] w-screen h-screen grid place-content-center font-mono">
       <section className="w-[550px] h-1/2">
         <header className="flex justify-between mb-7 items-center">
-          <h1 className="text-xl text-white">
+          <h1 className="text-xl text-gray-900 dark:text-white">
             devfinder
           </h1>
-          <h2 className="text-sm text-white flex items-center">
-            LIGHT <BsSunFill className="ml-2"/>
-          </h2>
+          <button onClick={handleDarkMode} className="text-sm text-[#1F2A48] dark:text-white flex items-center">
+            {darkMode ? 'LIGHT' : 'DARK'} {!darkMode ? <BsMoonFill className="ml-2"/> : <BsSunFill className="ml-2"/> }
+          </button>
+
         </header>
         <article className="w-full h-auto flex flex-col">
           <InputSearch 
-            placeholder='Search Github username...'
+            placeholder='Enter a github username...'
             searchButtonText='Search'
             inputSearch={inputSearch}
             handleSearch={handleSearch}
@@ -34,9 +35,10 @@ function GithubUserView() {
           />
           <Card 
             error={error}
-            user={user as IUserData}
+            user={user as GithubUserData}
             loading={loading}
             typeCard='githubUser'
+            inputSearch={inputSearch}
           />
         </article>
       </section>

@@ -1,27 +1,21 @@
 import { AiOutlineSearch } from 'react-icons/ai'
 
-interface IInputSearch {
-  placeholder: string,
-  inputSearch: string,
-  searchButtonText: string,
-  handleSearch: any,
-  onSearchUser: () => void
-}
+import { InputSearchProps } from '../../interfaces/InputInterfaces'
 
 function InputSearch({ 
   placeholder, inputSearch, searchButtonText,
   handleSearch, onSearchUser 
-}: IInputSearch) {
+}: InputSearchProps) {
 
   return (
-    <div className="relative mb-3">
+    <div className="relative mb-3 shadow-lg">
       <div className="absolute inset-y-0 flex items-center pl-3 pointer-events-none">
         <AiOutlineSearch className="w-5 h-5 text-blue-600" />
       </div>
       <input
         type="search"
         id="search"
-        className="block w-full p-4 pl-10 text-sm rounded-lg bg-[#1F2A48] placeholder-gray-300 text-white focus:ring-blue-500 focus:border-none"
+        className="block w-full p-4 pl-10 text-sm rounded-lg bg-white placeholder-gray-900 text-gray-900 dark:bg-[#1F2A48] dark:placeholder-gray-300 dark:text-white"
         placeholder={placeholder}
         onChange={handleSearch}
         value={inputSearch}
