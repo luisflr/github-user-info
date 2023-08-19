@@ -17,7 +17,7 @@ function GithubUserComponent ({ user }: GithubUserProps) {
           <h1 className="text-lg font-semibold text-gray-900 dark:text-white">{user.name || '-'}</h1>
           <h3 className="text-xs text-gray-900 dark:text-white">{user.created_at || '-'}</h3>
         </header>
-        <span className="text-xs text-gray-900 my-2">@{user.login || '-'}</span>
+        <span className="text-xs text-blue-600 my-2">@{user.login || '-'}</span>
         <p className="text-sm text-gray-600 dark:text-gray-300 my-2">This profile has no bio</p>
         <ul className="flex justify-around w-full bg-blue-100 dark:bg-[#141c2f] rounded-md my-4 py-4">
           <li>
