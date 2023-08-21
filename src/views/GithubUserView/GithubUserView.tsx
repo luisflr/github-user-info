@@ -10,12 +10,12 @@ import { GithubUserData } from '../../interfaces/GithubUserIntertfaces'
 function GithubUserView() {
   const { 
     inputSearch, user, error, loading, darkMode,
-    handleSearch, onSearchUser, handleDarkMode
+    handleSearch, handleSearchUser, handleDarkMode
   } = useGithubUser()
 
   return (
-    <main className="bg-[#F5F8FF] dark:bg-[#141c2f] w-screen h-screen grid place-content-center font-mono">
-      <section className="w-[550px] h-1/2">
+    <main className="bg-[#F5F8FF] dark:bg-[#141c2f] w-full h-[700px] lg:h-screen flex items-center justify-center font-mono p-8 md:p-0">
+      <section className="w-full md:w-9/12 lg:w-[550px] h-full flex flex-col justify-center">
         <header className="flex justify-between mb-7 items-center">
           <h1 className="text-xl text-gray-900 dark:text-white">
             devfinder
@@ -31,7 +31,7 @@ function GithubUserView() {
             searchButtonText='Search'
             inputSearch={inputSearch}
             handleSearch={handleSearch}
-            onSearchUser={onSearchUser}
+            handleSearchUser={handleSearchUser}
           />
           <Card 
             error={error}

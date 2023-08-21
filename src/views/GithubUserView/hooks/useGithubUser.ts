@@ -24,7 +24,10 @@ export const useGithubUser = () => {
     setInputSearch(e.target.value)
   }
 
-  const onSearchUser = () => setSearch(true)
+  const handleSearchUser = (e: ChangeEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSearch(true)
+  }
   
   const handleUser = async () => {
     setLoading(true)
@@ -57,7 +60,7 @@ export const useGithubUser = () => {
 
     // Functions
     handleSearch,
-    onSearchUser,
+    handleSearchUser,
     handleDarkMode
   }
 }

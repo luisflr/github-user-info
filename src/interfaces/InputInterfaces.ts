@@ -5,5 +5,5 @@ export interface InputSearchProps {
   inputSearch: string,
   searchButtonText: string,
   handleSearch: (e: ChangeEvent<HTMLInputElement>) => void,
-  onSearchUser: () => void
+  handleSearchUser: (e: ChangeEvent<HTMLFormElement>) => void
 }

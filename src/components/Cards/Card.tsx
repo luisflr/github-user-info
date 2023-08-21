@@ -14,7 +14,7 @@ function Card({inputSearch, error, user, loading, typeCard}: CardProps) {
 
   return (
     <section 
-      className="flex bg-white dark:bg-[#1F2A48] justify-center items-center mt-4 p-7 rounded-xl w-full h-[360px] shadow-lg"
+      className="flex bg-white dark:bg-[#1F2A48] justify-center items-center mt-4 p-7 rounded-xl w-full h-[470px] md:h-[420px] lg:h-[380px] shadow-lg"
     >
       {error
         ? <div className='flex flex-col items-center'>
