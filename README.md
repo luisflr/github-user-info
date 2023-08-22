@@ -20,5 +20,8 @@ The challenge goes like this.
 And this is the results
 
 Ligth mode
+![image](https://github.com/luisflr/github-user-info/assets/37960514/cf9a3327-ab6b-473b-a514-5b7cd140ad1a)
+
 
 Dark mode
+![image](https://github.com/luisflr/github-user-info/assets/37960514/2252478b-5175-4400-9c92-506307875a9f)
