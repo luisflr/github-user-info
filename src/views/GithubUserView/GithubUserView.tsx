@@ -14,11 +14,11 @@ function GithubUserView() {
   } = useGithubUser()
 
   return (
-    <main className="bg-[#F5F8FF] dark:bg-[#141c2f] w-full h-[700px] lg:h-screen flex items-center justify-center font-mono p-8 md:p-0">
+    <main className="bg-[#F5F8FF] dark:bg-[#141c2f] w-full h-screen min-h-[700px] lg:h-screen flex items-center justify-center font-mono p-8 md:p-0">
       <section className="w-full md:w-9/12 lg:w-[550px] h-full flex flex-col justify-center">
         <header className="flex justify-between mb-7 items-center">
           <h1 className="text-xl text-gray-900 dark:text-white">
-            devfinder
+            Github finder
           </h1>
           <button onClick={handleDarkMode} className="text-sm text-[#1F2A48] dark:text-white flex items-center">
             {darkMode ? 'LIGHT' : 'DARK'} {!darkMode ? <BsMoonFill className="ml-2"/> : <BsSunFill className="ml-2"/> }
